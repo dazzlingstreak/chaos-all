@@ -1,6 +1,6 @@
 package com.example.all.demo;
 
-import com.example.all.service.MyThread;
+import com.example.all.service.SemaphoreServiceThread;
 import com.example.all.service.SemaphoreService;
 
 /**
@@ -10,10 +10,10 @@ import com.example.all.service.SemaphoreService;
 public class SemaphoreDemo {
 
     public static void main(String[] args) {
-        SemaphoreService semaphoreService = new SemaphoreService(2);
+        SemaphoreService semaphoreService = new SemaphoreService(1);
 
         for (int i = 0; i < 10; i++) {
-            MyThread thread = new MyThread("thread" + (i + 1), semaphoreService);
+            SemaphoreServiceThread thread = new SemaphoreServiceThread("thread" + (i + 1), semaphoreService);
             thread.start();
         }
     }
